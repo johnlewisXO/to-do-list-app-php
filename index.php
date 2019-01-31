@@ -33,24 +33,24 @@ mysqli_close($conn);
 
 
 <br>
-<input type="text" name="Username" placeholder="Username" id="loginForm">
+<input type="text" name="Username" placeholder="Username" class="loginForm">
 <br>
 <br>
-<input type="password" name="Password" placeholder="Username" id="loginForm">
+<input type="password" name="Password" placeholder="Username" class="loginForm">
 <br>
 <br>
-<input type="button" value="Login" id="loginForm">
-<br>
-
+<input type="button" value="Login" class="loginForm">
 <br>
 
-<input type="button" value="Insert">
+<br>
 
-<input type="button" value="Read">
+<input type="button" value="Insert" class="loginForm">
 
-<input type="button" value="Update">
+<input type="button" value="Read" class="loginForm">
 
-<input type="button" value="Delete">
+<input type="button" value="Update" class="loginForm">
+
+<input type="button" value="Delete" class="loginForm">
 
 
 

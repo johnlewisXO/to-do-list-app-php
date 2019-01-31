@@ -1,6 +1,7 @@
 <?php
 
 include_once ('user.php');
+
 $servername = "localhost";
 $username = "root";
 $password = "Carol786";
