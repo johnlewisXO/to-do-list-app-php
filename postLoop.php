@@ -59,51 +59,74 @@ if (isset($_POST['add']))
     
 
 <main role="main" class="container">
-
     <br>
+    <form class="form-inline" role="form" action="postLoop.php" method="post">
+
+        <input type="text" class="form-control" name="add" id="addID">
+
+        <button type="submit" class="btn btn-default">ADD</button>
+
+        <button type="submit">DELETE</button>
+
+    </form>
+
+</main>
 
 
 
-        <form class="form-inline" role="form" action="postLoop.php" method="post">
+<ul id="toDoList">
 
-            <input type="text" class="form-control" name="add" id="addID">
+<?php
 
-            <button type="submit" class="btn btn-default">ADD</button>
+require_once 'connect.php';
 
-            <button type="submit">DELETE</button>
+$todo_res = $conn->query("SELECT * FROM listContent ORDER BY listItemID DESC");
 
-        </form>
+while ($row = $todo_res->fetch_assoc())
 
+    {
+        if($row["listItemDone"]==1) {
+            echo "<li><strike>" . $row["listItem"] . "<strike></li>";
+        }else{
+        echo "<br>" . $row['listItem'] . "<br>"; 
+    }
+
+?>
+
+</ul>
+
+<!-- imported jquery library for server-side functionality -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<!-- script for identifying list item indexes -->
+<script>
+
+$( "li" ).click(function() {}
+    var index = $("li").index(this);
     
+    //$("li").eq( index ).css("background-color", "pink");
+    $( "span" ).text("That was li index #" + index);
+});
 
-    </main>
+</script>
+
+<script>
+$("li").click(function) {
+    var index = $("li").index( this );
+    $("span").text( "That was li index # " + index );
+    $("li").load("ajax.php", {index}, function(myObj) {
+        var myArr = JSON.parse(myObj);
+
+        for (i=0; i < myArr.text.length; i++ ){
+            if(myArr.done[i]==0)
+        }
+    }
+}
+
+</script>
 
 </body>
 
 </html>
 
-
-
-<?php
-
-
-
-
-
-require_once 'connect.php';
-
-
-
-$todo_res = $conn->query("SELECT * FROM listContent ORDER BY listItemID DESC");
-
-
-
-while ($row = $todo_res->fetch_assoc())
-
-    {
-
-        echo "<br>" . $row['listItem'] . "<br>"; 
-
-    }
-
-?>

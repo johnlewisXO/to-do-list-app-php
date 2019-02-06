@@ -18,11 +18,6 @@ $sql = "SELECT * FROM listContent";
 
 $output = $conn->query($sql)
 
-?>
-
-<div id="displayItems">
-
-<?php
 if($output->num_rows > 0) {
     while ($row = $output->fetch_assoc()) {
         echo "ID : " . $row["listID"]. " - Item: " . $row["listText"]. " " . "Item Status: ". "<br>". 
@@ -36,7 +31,7 @@ $conn->close();
 
 ?>
 
-</div>
+
     
 </body>
 </html>

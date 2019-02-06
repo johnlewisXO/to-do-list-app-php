@@ -9,23 +9,8 @@
     <script src="main.js"></script>
 </head>
 <body>
+
     
     
 </body>
 </html>
-
-<?php
-
-require_once 'connect.php';
-
-$sql = "DELETE FROM listContent WHERE ID='' ";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record deletion succeeded";
-} else {
-    echo "Error with deletion of record: " . $conn->error;
-}
-
-$conn->close();
-
-?>
